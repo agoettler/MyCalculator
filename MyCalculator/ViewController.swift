@@ -13,9 +13,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var calculatorDisplay: UILabel!
     
     @IBAction func digitPressed(_ sender: AnyObject) {
-        print("\(sender.currentTitle!) button pressed")
-        calculatorDisplay.text = "Success!"
+        let title: String? = sender.currentTitle!
+        print("\(title) button pressed")
+        calculatorDisplay.text = title
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
