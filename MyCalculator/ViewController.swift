@@ -13,9 +13,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var calculatorDisplay: UILabel!
     
     @IBAction func digitPressed(_ sender: AnyObject) {
-        let title: String? = sender.currentTitle!
-        print("\(title) button pressed")
-        calculatorDisplay.text = title
+        // let's try this optional binding thing
+        if let digitEntered:String = sender.currentTitle {
+            print("Button '\(digitEntered)' was pressed")
+        } else {
+            print("'Nil' value received")
+        }
     }
 
     
