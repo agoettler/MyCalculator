@@ -10,6 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var calculatorDisplay: UILabel!
+    
+    @IBAction func buttonPressed(_ sender: AnyObject) {
+        print("\(sender.currentTitle!) button pressed")
+        calculatorDisplay.text = "Success!"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
