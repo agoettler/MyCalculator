@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var calculatorDisplay: UILabel!
     
-    @IBAction func buttonPressed(_ sender: AnyObject) {
+    @IBAction func digitPressed(_ sender: AnyObject) {
         print("\(sender.currentTitle!) button pressed")
         calculatorDisplay.text = "Success!"
     }
