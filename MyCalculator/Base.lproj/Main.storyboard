@@ -64,6 +64,9 @@
                                 <state key="normal" title="+">
                                     <color key="titleColor" red="0.98943418260000005" green="0.95794391629999998" blue="0.86405980589999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="operationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="658-b3-tYY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOl-nD-fgy">
                                 <color key="backgroundColor" red="0.27671992779999999" green="0.35665956139999999" blue="0.38298487660000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -71,6 +74,9 @@
                                 <state key="normal" title="-">
                                     <color key="titleColor" red="0.98943418260000005" green="0.95794391629999998" blue="0.86405980589999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="operationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wej-jK-nPk"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OhY-fo-NVs">
                                 <color key="backgroundColor" red="0.27671992779999999" green="0.35665956139999999" blue="0.38298487660000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -108,6 +114,9 @@
                                 <state key="normal" title="×">
                                     <color key="titleColor" red="0.98943418260000005" green="0.95794391629999998" blue="0.86405980589999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="operationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c2p-Nk-gcz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptC-gh-KTh">
                                 <color key="backgroundColor" red="0.27671992779999999" green="0.35665956139999999" blue="0.38298487660000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -145,6 +154,9 @@
                                 <state key="normal" title="√">
                                     <color key="titleColor" red="0.98943418260000005" green="0.95794391629999998" blue="0.86405980589999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="operationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j1e-ae-Md7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JrS-sw-cTL">
                                 <color key="backgroundColor" red="0.27671992779999999" green="0.35665956139999999" blue="0.38298487660000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -152,6 +164,9 @@
                                 <state key="normal" title="π">
                                     <color key="titleColor" red="0.98943418260000005" green="0.95794391629999998" blue="0.86405980589999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="operationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mee-0J-XFk"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AE1-bA-bUq">
                                 <color key="backgroundColor" red="0.27671992779999999" green="0.35665956139999999" blue="0.38298487660000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -169,6 +184,9 @@
                                 <state key="normal" title=".">
                                     <color key="titleColor" red="0.98943418260000005" green="0.95794391629999998" blue="0.86405980589999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="decimalPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dWz-TV-sG0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmh-cF-7bv">
                                 <color key="backgroundColor" red="0.27671992779999999" green="0.35665956139999999" blue="0.38298487660000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -176,6 +194,9 @@
                                 <state key="normal" title="±">
                                     <color key="titleColor" red="0.98943418260000005" green="0.95794391629999998" blue="0.86405980589999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="operationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0do-5H-ZGK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pcf-DM-elZ">
                                 <color key="backgroundColor" red="0.27671992779999999" green="0.35665956139999999" blue="0.38298487660000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -183,6 +204,9 @@
                                 <state key="normal" title="sin">
                                     <color key="titleColor" red="0.98943418260000005" green="0.95794391629999998" blue="0.86405980589999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="operationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tRM-Y8-s46"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOL-Hg-tsS">
                                 <color key="backgroundColor" red="0.27671992779999999" green="0.35665956139999999" blue="0.38298487660000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -190,6 +214,9 @@
                                 <state key="normal" title="cos">
                                     <color key="titleColor" red="0.98943418260000005" green="0.95794391629999998" blue="0.86405980589999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="operationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T7w-lr-w2Z"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUf-KC-Iuv">
                                 <color key="backgroundColor" red="0.27671992779999999" green="0.35665956139999999" blue="0.38298487660000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -197,6 +224,9 @@
                                 <state key="normal" title="Enter">
                                     <color key="titleColor" red="0.98943418260000005" green="0.95794391629999998" blue="0.86405980589999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="enterPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EkD-yi-nyg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAz-Eo-S4r">
                                 <color key="backgroundColor" red="0.74176257848739624" green="0.21325300633907318" blue="0.073530435562133789" alpha="1" colorSpace="calibratedRGB"/>
@@ -204,6 +234,9 @@
                                 <state key="normal" title="C">
                                     <color key="titleColor" red="0.98943418260000005" green="0.95794391629999998" blue="0.86405980589999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="clearPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ebI-cb-PUK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yby-PJ-sCd">
                                 <color key="backgroundColor" red="0.27671992779999999" green="0.35665956139999999" blue="0.38298487660000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -211,6 +244,9 @@
                                 <state key="normal" title="←">
                                     <color key="titleColor" red="0.98943418260000005" green="0.95794391629999998" blue="0.86405980589999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="backSpacePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pfX-rq-ESD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcR-VG-m5y">
                                 <color key="backgroundColor" red="0.27671992779999999" green="0.35665956139999999" blue="0.38298487660000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -218,6 +254,9 @@
                                 <state key="normal" title="÷">
                                     <color key="titleColor" red="0.98943418260000005" green="0.95794391629999998" blue="0.86405980589999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="operationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NFa-xE-tf8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.039380736649036407" green="0.16011646389961243" blue="0.19833275675773621" alpha="1" colorSpace="calibratedRGB"/>
