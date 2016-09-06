@@ -12,11 +12,12 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var calculatorDisplay: UILabel!
     var currentlyEnteringNumber: Bool = false
+    var calculatorModel: RPNCalculatorModel = RPNCalculatorModel()
     
     @IBAction func digitPressed(_ sender: AnyObject) {
         
         // let's try this optional binding thing
-        if let digitEntered:String = sender.currentTitle {
+        if let digitEntered: String = sender.currentTitle {
             
             print("Digit button '\(digitEntered)' was pressed")
             
@@ -44,7 +45,7 @@ class ViewController: UIViewController {
             
         }
         
-        // more stuff happens here
+        // TODO more stuff happens here
     }
 
     @IBAction func operationPressed(_ sender: AnyObject) {
@@ -59,12 +60,14 @@ class ViewController: UIViewController {
             
         }
        
-        // more stuff happens here
+        // TODO more stuff happens here
     }
   
     
     @IBAction func enterPressed(_ sender: AnyObject) {
         print("Enter button pressed")
+        // TODO make this actually do things
+        calculatorModel.enterNumber(number: 0)
     }
     
     @IBAction func backSpacePressed(_ sender: AnyObject) {

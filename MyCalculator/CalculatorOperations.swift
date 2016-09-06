@@ -12,6 +12,8 @@ enum CalculatorOperations {
     
     case addition, subtraction, multiplication, division, squareRoot, pi, sine, cosine, negation
     
+    // functions for calculator operations are defined here in the enumeration
+    
     func add(_ firstAddend: Double, _ secondAddend: Double) -> Double {
         return firstAddend + secondAddend
     }
@@ -33,12 +35,12 @@ enum CalculatorOperations {
     }
     
     func computeSine(_ angle: Double) -> Double {
-        // look at this more closely later
+        // TODO apparently Swift's sine function is goofy with floating point, look into this later
         return 0
     }
     
     func compueCosine(_ angle: Double) -> Double {
-        // look at this later
+        // TODO look at this later
         return 0
     }
     
