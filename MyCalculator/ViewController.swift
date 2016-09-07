@@ -11,8 +11,12 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var calculatorDisplay: UILabel!
-    var currentlyEnteringNumber: Bool = false
+    var userIsEnteringNumber: Bool = false
+    var decimalEntered: Bool = false
     var calculatorModel: RPNCalculatorModel = RPNCalculatorModel()
+    let operationsDictionary = ["+" : CalculatorOperation.addition, "-" : CalculatorOperation.subtraction, "×" : CalculatorOperation.multiplication, "÷" : CalculatorOperation.division, "√" : CalculatorOperation.squareRoot, "π" : CalculatorOperation.pi, "sin" : CalculatorOperation.sine, "cos" : CalculatorOperation.cosine, "±" : CalculatorOperation.negation]
+    
+    let calculatorDisplayReturnedNil = "calculatorDisplay returned nil"
     
     @IBAction func digitPressed(_ sender: AnyObject) {
         
@@ -23,51 +27,111 @@ class ViewController: UIViewController {
             
             if let currentDisplayText: String = calculatorDisplay.text {
                 
-                if currentlyEnteringNumber {
+                if userIsEnteringNumber {
                     
                     calculatorDisplay.text = currentDisplayText + digitEntered
                     
                 } else {
                     
-                    currentlyEnteringNumber = true
+                    userIsEnteringNumber = true
                     
                     calculatorDisplay.text = digitEntered
                     
                 }
                 
             } else {
-                print("calculatorDisplay text returned nil")
+                print(calculatorDisplayReturnedNil)
             }
             
         } else {
             
-            print("'Nil' value received")
+            print("nil value received")
             
         }
         
-        // TODO more stuff happens here
     }
 
     @IBAction func operationPressed(_ sender: AnyObject) {
         
-        if let operationEntered:String = sender.currentTitle {
+        if let operationEntered: String = sender.currentTitle {
             
             print("Operation button '\(operationEntered)' was pressed")
             
+            if let operation: CalculatorOperation = operationsDictionary[operationEntered] {
+                
+                if userIsEnteringNumber {
+                    
+                    // if the user presses negation while entering a number, negate the value in the display
+                    if operation == .negation {
+                        
+                        if let currentDisplayText: String = calculatorDisplay.text {
+                            
+                            calculatorDisplay.text = "-" + currentDisplayText
+                            
+                        } else {
+                            
+                            print(calculatorDisplayReturnedNil)
+                            
+                        }
+                        
+                    } else {
+                        
+                        // if the user presses any other operation while entering a number, push the number onto the stack
+                        self.enterPressed()
+                        
+                    }
+                    
+                    
+                } else {
+                    
+                    let result: Double = calculatorModel.performOperation(operation: operation)
+                    
+                    print("Performed \(operationsDictionary[operationEntered]!)")
+                    
+                    // set decimal entered to true to prevent the user from appending a second decimal
+                    decimalEntered = true
+                    
+                    calculatorDisplay.text = "\(result)"
+                }
+                
+            } else {
+                
+                print("No valid operation found")
+                
+            }
+            
         } else {
             
-            print("'Nil' value received")
+            print("operationEntered received a nil value from the sender")
             
         }
-       
-        // TODO more stuff happens here
+            
     }
-  
     
-    @IBAction func enterPressed(_ sender: AnyObject) {
+    @IBAction func enterPressed() {
         print("Enter button pressed")
-        // TODO make this actually do things
-        calculatorModel.enterNumber(number: 0)
+        if let currentDisplayText: String = calculatorDisplay.text {
+            
+            if let number: Double = Double(currentDisplayText) {
+                
+                userIsEnteringNumber = false
+                
+                decimalEntered = false
+                
+                print("Value '\(number)' sent to model")
+                
+                calculatorModel.enterNumber(number: number)
+                
+            } else {
+                
+                print("Entered value could not be converted to float")
+                
+            }
+        } else {
+            
+            print(calculatorDisplayReturnedNil)
+            
+        }
     }
     
     @IBAction func backSpacePressed(_ sender: AnyObject) {
@@ -80,6 +144,21 @@ class ViewController: UIViewController {
     
     @IBAction func decimalPressed(_ sender: AnyObject) {
         print("Decimal button pressed")
+        if let currentDisplayText: String = calculatorDisplay.text {
+            
+            if !decimalEntered {
+                
+                decimalEntered = true
+                
+                calculatorDisplay.text = currentDisplayText + "."
+                
+            }
+            
+        } else {
+            
+            print(calculatorDisplayReturnedNil)
+            
+        }
     }
     
     override func viewDidLoad() {

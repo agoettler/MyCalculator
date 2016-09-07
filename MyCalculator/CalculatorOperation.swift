@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CalculatorOperations {
+public enum CalculatorOperation {
     
     case addition, subtraction, multiplication, division, squareRoot, pi, sine, cosine, negation
     
@@ -24,6 +24,10 @@ enum CalculatorOperations {
     
     func multiply(_ multiplier: Double, _ multiplicand: Double) -> Double {
         return multiplier * multiplicand
+    }
+    
+    func divide(_ dividend: Double, _ divisor: Double) -> Double {
+        return dividend / divisor
     }
     
     func findSquareRoot(_ square: Double) -> Double {
