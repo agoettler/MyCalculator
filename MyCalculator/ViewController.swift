@@ -11,6 +11,9 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var calculatorDisplay: UILabel!
+    @IBOutlet weak var entriesDisplay: UILabel!
+    
+    
     var userIsEnteringNumber: Bool = false
     var decimalEntered: Bool = false
     var calculatorModel: RPNCalculatorModel = RPNCalculatorModel()
@@ -86,8 +89,6 @@ class ViewController: UIViewController {
                     
                     let result: Double = calculatorModel.performOperation(operation: operation)
                     
-                    print("Performed \(operationsDictionary[operationEntered]!)")
-                    
                     // set decimal entered to true to prevent the user from appending a second decimal
                     decimalEntered = true
                     
@@ -140,6 +141,14 @@ class ViewController: UIViewController {
     
     @IBAction func clearPressed(_ sender: AnyObject) {
         print("Clear button pressed")
+        
+        calculatorModel.clearCalculator()
+        
+        calculatorDisplay.text = "0"
+        
+        decimalEntered = false
+        
+        userIsEnteringNumber = false
     }
     
     @IBAction func decimalPressed(_ sender: AnyObject) {

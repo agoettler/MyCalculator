@@ -14,23 +14,23 @@ public enum CalculatorOperation {
     
     // functions for calculator operations are defined here in the enumeration
     
-    func add(_ firstAddend: Double, _ secondAddend: Double) -> Double {
+    func add(_ firstAddend: Double = 0, _ secondAddend: Double = 0) -> Double {
         return firstAddend + secondAddend
     }
     
-    func subtract(_ minuend: Double, _ subtrahend: Double) -> Double {
+    func subtract(_ minuend: Double = 0, _ subtrahend: Double = 0) -> Double {
         return minuend - subtrahend
     }
     
-    func multiply(_ multiplier: Double, _ multiplicand: Double) -> Double {
+    func multiply(_ multiplier: Double = 0, _ multiplicand: Double = 0) -> Double {
         return multiplier * multiplicand
     }
     
-    func divide(_ dividend: Double, _ divisor: Double) -> Double {
+    func divide(_ dividend: Double = 0, _ divisor: Double = 1) -> Double {
         return dividend / divisor
     }
     
-    func findSquareRoot(_ square: Double) -> Double {
+    func findSquareRoot(_ square: Double = 0) -> Double {
         return sqrt(square)
     }
     
@@ -38,17 +38,17 @@ public enum CalculatorOperation {
         return Double.pi
     }
     
-    func computeSine(_ angle: Double) -> Double {
+    func computeSine(_ angle: Double = 0) -> Double {
         // TODO apparently Swift's sine function is goofy with floating point, look into this later
-        return 0
+        return sin(angle)
     }
     
-    func compueCosine(_ angle: Double) -> Double {
+    func compueCosine(_ angle: Double = 0) -> Double {
         // TODO look at this later
-        return 0
+        return cos(angle)
     }
     
-    func negate(_ number: Double) -> Double {
+    func negate(_ number: Double = 0) -> Double {
         return -number
     }
     
