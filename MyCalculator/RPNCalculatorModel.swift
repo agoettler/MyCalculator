@@ -25,8 +25,19 @@ public class RPNCalculatorModel {
         if !operandStack.isEmpty() {
             let result: Double
             
+            result = operation.performOperation(operandStack: operandStack)
+            
+            print("result of \(operation) was \(result)")
+            
+            operandStack.push(result)
+            
+            print("Stack is " + operandStack.description())
+            
+            return result
+            
             // TODO currently crashes due to unexpected nil if a binary operation is requested with only one operand on the stack
             
+            /*
             switch operation {
             case .addition:
                 result =  operation.add(operandStack.pop()!, operandStack.pop()!)
@@ -52,13 +63,7 @@ public class RPNCalculatorModel {
                 result =  operation.piValue()
             }
             
-            print("result of \(operation) was \(result)")
-            
-            operandStack.push(result)
-            
-            print("Stack is " + operandStack.description())
-            
-            return result
+            */
             
         } else {
             print("Attempted to operate on an empty stack")
@@ -67,28 +72,11 @@ public class RPNCalculatorModel {
         
     }
     
-    /*
-    private func performBinaryOperation(operation: CalculatorOperation) -> Double {
-        if !operandStack.isEmpty() {
-            if let secondOperand: Double = operandStack.pop() {
-                if let firstOperand: Double = operandStack.pop() {
-                    
-                } else {
-                    
-                }
-            } else {
-                
-            }
-        } else {
-            
-        }
-    }
-    */
-    
     public func clearCalculator() {
         
         while !operandStack.isEmpty() {
             
+            // this is a little clumsy, could be changed later
             operandStack.pop()
             
         }
