@@ -178,13 +178,25 @@ class ViewController: UIViewController {
         print("Decimal button pressed")
         if let currentDisplayText: String = calculatorDisplay.text {
             
-            if !isDisplayingResult && !decimalEntered {
+            if !decimalEntered {
                 
                 decimalEntered = true
                 
-                userIsEnteringNumber = true
-                
-                calculatorDisplay.text = currentDisplayText + "."
+                if isDisplayingResult {
+                    
+                    userIsEnteringNumber = true
+                    
+                    isDisplayingResult = false
+                    
+                    calculatorDisplay.text = "0."
+                    
+                } else {
+                    
+                    userIsEnteringNumber = true
+                    
+                    calculatorDisplay.text = currentDisplayText + "."
+                    
+                }
                 
             }
             
