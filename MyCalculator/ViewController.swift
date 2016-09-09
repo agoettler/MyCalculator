@@ -156,6 +156,35 @@ class ViewController: UIViewController {
     
     @IBAction func backSpacePressed(_ sender: AnyObject) {
         print("Backspace button pressed")
+        
+        // prevent the user from backspacing a result or an entered number
+        if userIsEnteringNumber {
+            
+            // it appears possible to optional bind to a var, but this works fine for now
+            if let currentDisplayText = calculatorDisplay.text {
+                
+                // must be able to modify the string
+                var newDisplayText: String = currentDisplayText
+                
+                // removing seems to return the character removed, not the modified string
+                newDisplayText.remove(at: newDisplayText.index(before: newDisplayText.endIndex))
+                
+                // if all characters have been backspaced away, show a 0 in the display
+                if newDisplayText == "" {
+                    
+                    userIsEnteringNumber = false
+                    
+                    calculatorDisplay.text = "0"
+                    
+                } else {
+                    
+                    calculatorDisplay.text = newDisplayText
+                    
+                }
+                
+            }
+        }
+        
     }
     
     @IBAction func clearPressed(_ sender: AnyObject) {
