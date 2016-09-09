@@ -45,6 +45,13 @@ public class Stack<Element> {
         
     }
     
+    // removes all elements from the stack
+    public func removeAll() {
+        
+        items.removeAll()
+        
+    }
+    
     // returns a string representation of the current state of the stack
     public func description() -> String {
         

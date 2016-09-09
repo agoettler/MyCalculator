@@ -42,16 +42,9 @@ public class RPNCalculatorModel {
     
     public func clearCalculator() {
         
-        while !operandStack.isEmpty() {
-            
-            // this is a little clumsy, could be changed later
-            operandStack.pop()
-            
-        }
+        operandStack.removeAll()
         
-        print("Calculator stack cleared")
-        
-        print("Stack is " + operandStack.description())
+        print("Calculator stack cleared; stack is " + operandStack.description())
         
     }
 }
