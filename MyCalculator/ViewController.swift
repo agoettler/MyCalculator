@@ -16,10 +16,12 @@ class ViewController: UIViewController {
     
     var userIsEnteringNumber: Bool = false
     var decimalEntered: Bool = false
+    var isDisplayingResult: Bool = false
     var calculatorModel: RPNCalculatorModel = RPNCalculatorModel()
     let operationsDictionary = ["+" : CalculatorOperation.addition, "-" : CalculatorOperation.subtraction, "×" : CalculatorOperation.multiplication, "÷" : CalculatorOperation.division, "√" : CalculatorOperation.squareRoot, "π" : CalculatorOperation.pi, "sin" : CalculatorOperation.sine, "cos" : CalculatorOperation.cosine, "±" : CalculatorOperation.negation]
     
     let calculatorDisplayReturnedNil = "calculatorDisplay returned nil"
+    let entriesDisplayReturnedNil = "entriesDisplay returned nil"
     
     @IBAction func digitPressed(_ sender: AnyObject) {
         
@@ -30,13 +32,14 @@ class ViewController: UIViewController {
             
             if let currentDisplayText: String = calculatorDisplay.text {
                 
-                if userIsEnteringNumber {
+                if !isDisplayingResult && userIsEnteringNumber {
                     
                     calculatorDisplay.text = currentDisplayText + digitEntered
                     
                 } else {
                     
                     userIsEnteringNumber = true
+                    isDisplayingResult = false
                     
                     calculatorDisplay.text = digitEntered
                     
@@ -62,6 +65,20 @@ class ViewController: UIViewController {
             
             if let operation: CalculatorOperation = operationsDictionary[operationEntered] {
                 
+                // don't repeat yourself!
+                // doesn't need arguments since all variables necessary are in scope
+                func resolveOperation() {
+                    
+                    let result: String = calculatorModel.performOperation(operation: operation)
+                    
+                    calculatorDisplay.text = "\(result)"
+                    
+                    appendToEntriesList(nextEntry: operationEntered)
+                    
+                    isDisplayingResult = true
+                    
+                }
+                
                 if userIsEnteringNumber {
                     
                     // if the user presses negation while entering a number, negate the value in the display
@@ -79,21 +96,20 @@ class ViewController: UIViewController {
                         
                     } else {
                         
-                        // if the user presses any other operation while entering a number, push the number onto the stack
+                        // if the user presses any other operation while entering a number, push the number onto the stack and perform computation
                         self.enterPressed()
+                        
+                        resolveOperation()
                         
                     }
                     
                     
                 } else {
                     
-                    let result: Double = calculatorModel.performOperation(operation: operation)
-                    
-                    // set decimal entered to true to prevent the user from appending a second decimal
-                    decimalEntered = true
-                    
-                    calculatorDisplay.text = "\(result)"
+                    resolveOperation()
                 }
+                    
+
                 
             } else {
                 
@@ -119,21 +135,24 @@ class ViewController: UIViewController {
                 
                 decimalEntered = false
                 
+                isDisplayingResult = true
+                
                 print("Value '\(number)' sent to model")
                 
                 calculatorModel.enterNumber(number: number)
+                
+                appendToEntriesList(nextEntry: currentDisplayText)
                 
             } else {
                 
                 print("Entered value could not be converted to float")
                 
+                calculatorDisplay.text = "0"
+                
             }
-        } else {
-            
-            print(calculatorDisplayReturnedNil)
-            
         }
     }
+
     
     @IBAction func backSpacePressed(_ sender: AnyObject) {
         print("Backspace button pressed")
@@ -146,18 +165,24 @@ class ViewController: UIViewController {
         
         calculatorDisplay.text = "0"
         
+        entriesDisplay.text = ""
+        
         decimalEntered = false
         
         userIsEnteringNumber = false
+        
+        isDisplayingResult = false
     }
     
     @IBAction func decimalPressed(_ sender: AnyObject) {
         print("Decimal button pressed")
         if let currentDisplayText: String = calculatorDisplay.text {
             
-            if !decimalEntered {
+            if !isDisplayingResult && !decimalEntered {
                 
                 decimalEntered = true
+                
+                userIsEnteringNumber = true
                 
                 calculatorDisplay.text = currentDisplayText + "."
                 
@@ -167,6 +192,14 @@ class ViewController: UIViewController {
             
             print(calculatorDisplayReturnedNil)
             
+        }
+    }
+    
+    func appendToEntriesList(nextEntry: String) {
+        if let currentEntryList: String = entriesDisplay.text {
+            entriesDisplay.text = currentEntryList + " " + nextEntry
+        } else {
+            print(entriesDisplayReturnedNil)
         }
     }
     

@@ -19,13 +19,9 @@ public class RPNCalculatorModel {
         print("Stack is " + operandStack.description())
     }
     
-    public func performOperation(operation: CalculatorOperation) -> Double {
+    public func performOperation(operation: CalculatorOperation) -> String {
         
-        // don't do an operation if the stack is empty
-        if !operandStack.isEmpty() {
-            let result: Double
-            
-            result = operation.performOperation(operandStack: operandStack)
+        if let result: Double = operation.performOperation(operandStack: operandStack) {
             
             print("result of \(operation) was \(result)")
             
@@ -33,41 +29,13 @@ public class RPNCalculatorModel {
             
             print("Stack is " + operandStack.description())
             
-            return result
-            
-            // TODO currently crashes due to unexpected nil if a binary operation is requested with only one operand on the stack
-            
-            /*
-            switch operation {
-            case .addition:
-                result =  operation.add(operandStack.pop()!, operandStack.pop()!)
-            case .subtraction:
-                let secondOperand = operandStack.pop()!
-                let firstOperand = operandStack.pop()!
-                result = operation.subtract(firstOperand, secondOperand)
-            case .multiplication:
-                result = operation.multiply(operandStack.pop()!, operandStack.pop()!)
-            case .division:
-                let secondOperand = operandStack.pop()!
-                let firstOperand = operandStack.pop()!
-                result = operation.divide(firstOperand, secondOperand)
-            case .negation:
-                result = operation.negate(operandStack.pop()!)
-            case .squareRoot:
-                result = operation.findSquareRoot(operandStack.pop()!)
-            case .sine:
-                result = operation.computeSine(operandStack.pop()!)
-            case .cosine:
-                result = operation.compueCosine(operandStack.pop()!)
-            case .pi:
-                result =  operation.piValue()
-            }
-            
-            */
+            return String(result)
             
         } else {
-            print("Attempted to operate on an empty stack")
-            return 0
+            
+            // return an error message
+            return "Error"
+            
         }
         
     }
@@ -82,6 +50,8 @@ public class RPNCalculatorModel {
         }
         
         print("Calculator stack cleared")
+        
         print("Stack is " + operandStack.description())
+        
     }
 }
